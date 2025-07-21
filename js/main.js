@@ -42,9 +42,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Search
     searchInput.addEventListener('keyup', () => {
         const searchTerm = searchInput.value.toLowerCase();
+        if (searchTerm === ''){
+            displayProducts(allProducts);
+            return;
+        }
         const filteredProducts = allProducts.filter(product =>
             product.name.toLowerCase().includes(searchTerm)
         );
+
+    // ค้นหาสินค้าตามคำค้น
+        const filtered = allProducts.filter(product =>
+            product.name.toLowerCase().includes(searchTerm)
+        )
+
         displayProducts(filteredProducts);
     });
 });
